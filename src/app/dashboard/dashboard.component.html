@@ -1,0 +1,101 @@
+<div class="container-fluid" *ngIf="!videoConference">
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <h2>
+            Video Conference
+        </h2>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <!-- <div class="row">
+                <div class="col-sm-4">
+                    <input id="room-id" placeholder="unique room ID" id="input-id">
+                </div>
+                 <button class="btn btn-success" data-toggle="modal" data-target="#myModal"> Create Room</button> &nbsp;
+            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal2"> join Room</button>
+                <div class="col-sm-8"> -->
+            <!-- <button class="btn btn-success" (click)="openRoom()"> Create Room</button> &nbsp;
+            <button class="btn btn-primary" (click)="joinRoom()"> join Room</button> -->
+
+            <button class="btn btn-success" data-toggle="modal" data-target="#myModal"> Create Room</button> &nbsp;
+            <button class="btn btn-primary" data-toggle="modal" data-target="#myModal2"> join Room</button>
+
+            <!-- </div>
+            </div> -->
+        </div>
+        <div class="col-sm-4"></div>
+
+    </div>
+</div>
+<div class="container-fluid" *ngIf="videoConference">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="row" id="other-videos">
+                <p></p>
+            </div>
+        </div>
+        <div class="col-sm-6" style="margin-top:10px;">
+            <p>
+                <button class="btn btn-sm btn-success" id="startRecording"> Record </button>
+                <button class="btn btn-sm btn-danger" id="btnStopRecording" style="display: none;"> Stop Recording</button>
+                <!-- <button class="btn btn-sm btn-primary" (click)="download()"> Download</button> -->
+            </p>
+            <p> <span id="recording-status" style="display: none;"></span></p>
+            <div class="row">
+                <video #videoRecord id="main-video" controls autoplay></video>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="row" id="next-videos">
+            </div>
+        </div>
+    </div>
+    <app-multi-chat [value]="profileName"></app-multi-chat>
+</div>
+
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Create Room</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <input type="text" placeholder="enter your name" [(ngModel)]="userName" class="form-control">
+                <br>
+                <input type="text" placeholder="enter roomId" [(ngModel)]="roomId" class="form-control" disabled>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" (click)="openRoom()" data-dismiss="modal">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal2">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Join Room</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <input type="text" placeholder="enter your name" [(ngModel)]="userName" class="form-control">
+                <br>
+                <input type="text" placeholder="enter roomId" [(ngModel)]="roomId" class="form-control" disabled>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" (click)="joinRoom()" data-dismiss="modal">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>

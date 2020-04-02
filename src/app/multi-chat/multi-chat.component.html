@@ -1,0 +1,21 @@
+<div class="row open-icon"  *ngIf="!openChat">
+    <img src="../../assets/chat-icon.png" class="chat-icon" (click)="openChatBox()">
+</div>
+<div class="row open-chat" *ngIf="openChat">
+    <div class="col-sm-4">
+        <div class="card">
+            <div class="card-header">
+                <button class="btn btn-sm btn-danger" (click)="openChatBox()">close</button>
+            </div>
+            <div class="card-body">
+                <div *ngFor="let msg of messages">
+                    <b>{{msg?.name}} : </b>{{msg?.message}}
+                </div>
+            </div>
+            <div class="card-footer">
+                <input [(ngModel)]="message" type="text" (keyup)="$event.keyCode == 13 && sendMessage()" /> &nbsp;
+                <button class="btn btn-sm btn-success" (click)="sendMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+</div>

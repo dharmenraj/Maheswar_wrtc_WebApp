@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+#other-videos video {
+    max-width: 286px !important;
+    max-height:215px !important;
+    // border:1px solid black !important;
+    margin-top: 10px;
+    margin-left: 25px
+}
+ 
+#next-videos video {
+    max-width: 286px !important;
+    max-height:215px !important;
+    // border:1px solid black !important;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+video::-webkit-media-controls-play-button {
+    display: none !important;
+}
+video::-webkit-media-controls-timeline {
+    display: none !important;
+}
+video::-webkit-media-controls-current-time-display{
+    display: none !important;
+}
+video::-webkit-media-controls-time-remaining-display {
+    display: none !important;
+}
+video::-webkit-media-controls-mute-button {
+    display: none !important;
+}
+video::-webkit-media-controls-toggle-closed-captions-button {
+    display: none !important;
+}
+video::-webkit-media-controls-volume-slider {
+    display: none !important;
+}
